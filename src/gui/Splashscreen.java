@@ -5,6 +5,8 @@
 package gui;
 
 
+import com.formdev.flatlaf.IntelliJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatSolarizedDarkContrastIJTheme;
 
 /**
@@ -157,7 +159,7 @@ public class Splashscreen extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        FlatSolarizedDarkContrastIJTheme.setup();
+        FlatDarkPurpleIJTheme.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Splashscreen().setVisible(true);

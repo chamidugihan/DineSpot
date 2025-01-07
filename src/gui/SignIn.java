@@ -4,8 +4,12 @@
  */
 package gui;
 
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import java.sql.ResultSet;
+import model.MySQL;
+import model.UserBean;
 
 /**
  *
@@ -67,7 +71,7 @@ public class SignIn extends javax.swing.JFrame {
         jTextField1.setFont(new java.awt.Font("Noto Serif Hebrew", 0, 14)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Noto Serif Hebrew", 1, 14)); // NOI18N
-        jLabel4.setText("Username");
+        jLabel4.setText("Email");
 
         jLabel5.setFont(new java.awt.Font("Noto Serif Hebrew", 1, 14)); // NOI18N
         jLabel5.setText("Password");
@@ -176,18 +180,19 @@ public class SignIn extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         SignIn.setDefaultLookAndFeelDecorated(true);
-
+        
         try {
             UIManager.setLookAndFeel("com.formdev.flatlaf.FlatLightLaf");
             repaint();
             revalidate();
             SwingUtilities.updateComponentTreeUI(this);
             this.pack();
-
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -195,61 +200,82 @@ public class SignIn extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         SignIn.setDefaultLookAndFeelDecorated(true);
-
+        
         SignIn signIn = new SignIn();
-
+        
         try {
             UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatSolarizedDarkContrastIJTheme");
             SwingUtilities.updateComponentTreeUI(this);
             this.pack();
-
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        String username = jTextField1.getText();
+        String email = jTextField1.getText();
         String password = String.valueOf(jPasswordField1.getPassword());
-
-        if (username.isEmpty()) {
+        
+        if (email.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please Enter your Username", "Warning", JOptionPane.WARNING_MESSAGE);
         } else if (password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please Enter your Password", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
             try {
-                ResultSet rs = MySQL.execute("SELECT * FROM `user` WHERE `username` = '" + username + "' AND `password` = '" + password + "'");
-
+                ResultSet rs = MySQL.execute("SELECT * FROM `user` WHERE `email` = '" + email + "' AND `password` = '" + password + "'");
+                
                 if (rs.next()) {
+                    
+                    int status = rs.getInt("status_id");
+                    int user_type = rs.getInt("user_type_id");
 
-                    int status = rs.getInt("user_status_id");
-
+                    //status -> 1 = Admin
+                    //status -> 2 = Cashier
                     if (status == 1) {
+                        
+                        if (user_type == 1) {
+                            
+                            int id = rs.getInt("id");
+                            String fname = rs.getString("fname");
+                            String lname = rs.getString("lname");
+                            
+                            UserBean userBean = new UserBean();
+                            userBean.setId(id);
+                            userBean.setEmail(email);
+                            userBean.setFname(fname);
+                            userBean.setLname(lname);
+                            
+                            AdminHome adminHome = new AdminHome();
+                            adminHome.setVisible(true);
+                            this.dispose();
+                            
+                        } else if (user_type == 2) {
+                            
+                            int id = rs.getInt("id");
+                            String fname = rs.getString("fname");
+                            String lname = rs.getString("lname");
+                            
+                            UserBean userBean = new UserBean();
+                            userBean.setId(id);
+                            userBean.setEmail(email);
+                            userBean.setFname(fname);
+                            userBean.setLname(lname);
 
-                        int id = rs.getInt("id");
-                        String fname = rs.getString("fname");
-                        String lname = rs.getString("lname");
-
-                        int userid = rs.getInt("user_type_id");
-
-                        UserBean userBean = new UserBean();
-                        userBean.setId(id);
-                        userBean.setUsername(username);
-                        userBean.setFname(fname);
-                        userBean.setLname(lname);
-
-                        Invoice invoice = new Invoice();
-                        invoice.setUserBean(userBean);
-                        invoice.setVisible(true);
-                        this.dispose();
+                            Invoice invoice = new Invoice();
+                            invoice.setVisible(true);
+                            this.dispose();
+                            
+                        }
+                        
                     } else {
                         JOptionPane.showMessageDialog(this, "Inactive User", "Warning", JOptionPane.WARNING_MESSAGE);
                     }
-
+                    
                 } else {
                     JOptionPane.showMessageDialog(this, "Invalid Credentials", "Warning", JOptionPane.WARNING_MESSAGE);
                 }
-
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }
