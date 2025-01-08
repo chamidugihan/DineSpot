@@ -46,17 +46,17 @@ public class UserManagement extends javax.swing.JPanel {
         jButton3.setEnabled(false);
         jButton2.setEnabled(false);
     }
-    
-    public void reset(){
-    jTextField1.setText("");
-    jTextField2.setText("");
-    jTextField3.setText("");
-    jTextField4.setText("");
-    jComboBox1.setSelectedIndex(0);
-    jButton3.setEnabled(false);
-    jButton2.setEnabled(false);
-    jButton1.setEnabled(true);
-    loadUserData();
+
+    public void reset() {
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jComboBox1.setSelectedIndex(0);
+        jButton3.setEnabled(false);
+        jButton2.setEnabled(false);
+        jButton1.setEnabled(true);
+        loadUserData();
     }
 
     public void loadUserType() {
@@ -73,6 +73,7 @@ public class UserManagement extends javax.swing.JPanel {
 
             DefaultComboBoxModel model = new DefaultComboBoxModel(v);
             jComboBox1.setModel(model);
+            model.removeElementAt(0);
 
         } catch (Exception e) {
             log1.warning(e.toString());
@@ -129,7 +130,7 @@ public class UserManagement extends javax.swing.JPanel {
                 String line1 = resultset1.getString("line1");
                 String line2 = resultset1.getString("line2");
                 String city = resultset1.getString("city.name");
-                Vector vector1 = new Vector(); 
+                Vector vector1 = new Vector();
                 vector1.add(id1);
                 vector1.add(fname + " " + lname);
                 vector1.add(line1);
@@ -138,7 +139,7 @@ public class UserManagement extends javax.swing.JPanel {
                 model1.addRow(vector1);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log1.warning(e.toString());
         }
     }
 
@@ -167,6 +168,7 @@ public class UserManagement extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
 
         jLabel2.setFont(new java.awt.Font("Noto Serif Hebrew", 1, 26)); // NOI18N
         jLabel2.setText("User Management");
@@ -204,6 +206,11 @@ public class UserManagement extends javax.swing.JPanel {
 
         jComboBox1.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jButton2.setText("Update User");
@@ -369,6 +376,13 @@ public class UserManagement extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/close.png"))); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -378,15 +392,23 @@ public class UserManagement extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton4)
+                        .addGap(14, 14, 14))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -412,15 +434,14 @@ public class UserManagement extends javax.swing.JPanel {
             jTextField2.setText(lname);
             jTextField3.setText(email);
             jTextField4.setText(mobile);
-            
 
             DefaultComboBoxModel comboBoxModel = (DefaultComboBoxModel) jComboBox1.getModel();
             comboBoxModel.setSelectedItem(userType);
-            
+
             address(id);
             jButton3.setEnabled(true);
-        jButton2.setEnabled(true);
-        jButton1.setEnabled(false);
+            jButton2.setEnabled(true);
+            jButton1.setEnabled(false);
 
         }
     }//GEN-LAST:event_jTable1MouseClicked
@@ -428,35 +449,71 @@ public class UserManagement extends javax.swing.JPanel {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String mobile = jTextField4.getText();
         try {
-            ResultSet resultset = MySQL.execute("SELECT * FROM `user` WHERE `mobile` = '"+mobile+"'");
+            ResultSet resultset = MySQL.execute("SELECT * FROM `user` WHERE `mobile` = '" + mobile + "'");
             if (resultset.next()) {
-            String id = resultset.getString("id");
-            
-            // Pass the ID to the AddAddress window
-            AddAddress ad = new AddAddress(adminHome, true, id);
-            ad.setVisible(true);
-            reset();
-            
-        } else {
-            // Handle the case where no matching record is found
-            JOptionPane.showMessageDialog(this, "No user found with the provided mobile number.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+                String id = resultset.getString("id");
 
-            
+                // Pass the ID to the AddAddress window
+                AddAddress ad = new AddAddress(adminHome, true, id);
+                ad.setVisible(true);
+                reset();
+
+            } else {
+                // Handle the case where no matching record is found
+                JOptionPane.showMessageDialog(this, "No user found with the provided mobile number.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        String fname = jTextField1.getText();
+        String lname = jTextField2.getText();
+        String email = jTextField3.getText();
+        String mobile = jTextField4.getText();
+        String usertype = String.valueOf(jComboBox1.getSelectedItem());
+
+        try {
+            if (fname.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please Enter first name", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (fname.matches("'/^[A-Z]+$/i', \"abcAbc^Xyz\", $m")) {
+JOptionPane.showMessageDialog(this, "Please Enter Last Name", "Warning", JOptionPane.ERROR_MESSAGE);
+            } else if (lname.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please Enter Last Name", "Warning", JOptionPane.ERROR_MESSAGE);
+            } else if (!email.matches("^(?=.{1,64}@)[A-Za-z0-9\\+_-]+(\\.[A-Za-z0-9\\+_-]+)*@"
+                    + "[^-][A-Za-z0-9\\+-]+(\\.[A-Za-z0-9\\+-]+)*(\\.[A-Za-z]{2,})$")) {
+                JOptionPane.showMessageDialog(this, "Invalid Email", "Warning", JOptionPane.ERROR_MESSAGE);
+            } else if (email.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please Enter Email", "Warning", JOptionPane.ERROR_MESSAGE);
+            } else if (mobile.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please Enter Mobile Number", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (!mobile.matches("^07[01245678]{1}[0-9]{7}$")) {
+                JOptionPane.showMessageDialog(this, "Invalid Mobile", "Warning", JOptionPane.ERROR_MESSAGE);
+            } else {
+
+            }
+        } catch (Exception e) {
+            log1.warning(e.toString());
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        this.adminHome.removeUserManagement();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
