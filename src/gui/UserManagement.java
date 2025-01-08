@@ -479,7 +479,9 @@ public class UserManagement extends javax.swing.JPanel {
             if (fname.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Please Enter first name", "Warning", JOptionPane.WARNING_MESSAGE);
             } else if (fname.matches("'/^[A-Z]+$/i', \"abcAbc^Xyz\", $m")) {
-JOptionPane.showMessageDialog(this, "Please Enter Last Name", "Warning", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "First name not valid ", "Warning", JOptionPane.ERROR_MESSAGE);
+            } else if (lname.matches("'/^[A-Z]+$/i', \"abcAbc^Xyz\", $m")) {
+                JOptionPane.showMessageDialog(this, "Last name not valid", "Warning", JOptionPane.ERROR_MESSAGE);
             } else if (lname.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Please Enter Last Name", "Warning", JOptionPane.ERROR_MESSAGE);
             } else if (!email.matches("^(?=.{1,64}@)[A-Za-z0-9\\+_-]+(\\.[A-Za-z0-9\\+_-]+)*@"
@@ -492,7 +494,7 @@ JOptionPane.showMessageDialog(this, "Please Enter Last Name", "Warning", JOption
             } else if (!mobile.matches("^07[01245678]{1}[0-9]{7}$")) {
                 JOptionPane.showMessageDialog(this, "Invalid Mobile", "Warning", JOptionPane.ERROR_MESSAGE);
             } else {
-
+                
             }
         } catch (Exception e) {
             log1.warning(e.toString());
