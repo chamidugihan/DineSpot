@@ -8,8 +8,10 @@ import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Vector;
 import java.util.logging.FileHandler;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.MySQL;
 
@@ -41,6 +43,20 @@ public class UserManagement extends javax.swing.JPanel {
         loadUserType();
         loadUserData();
         this.adminHome = adminHome;
+        jButton3.setEnabled(false);
+        jButton2.setEnabled(false);
+    }
+    
+    public void reset(){
+    jTextField1.setText("");
+    jTextField2.setText("");
+    jTextField3.setText("");
+    jTextField4.setText("");
+    jComboBox1.setSelectedIndex(0);
+    jButton3.setEnabled(false);
+    jButton2.setEnabled(false);
+    jButton1.setEnabled(true);
+    loadUserData();
     }
 
     public void loadUserType() {
@@ -49,7 +65,7 @@ public class UserManagement extends javax.swing.JPanel {
             ResultSet resultSet = MySQL.execute("SELECT * FROM `user_type`");
 
             Vector<String> v = new Vector<>();
-
+            v.add("Select");
             while (resultSet.next()) {
                 v.add(resultSet.getString("type"));
                 this.userTypeMap.put(resultSet.getString("type"), resultSet.getString("id"));
@@ -177,6 +193,11 @@ public class UserManagement extends javax.swing.JPanel {
 
         jButton1.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jButton1.setText("Add User");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jLabel6.setText("User Type");
@@ -189,6 +210,11 @@ public class UserManagement extends javax.swing.JPanel {
 
         jButton3.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jButton3.setText("Add Address Details");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -386,14 +412,45 @@ public class UserManagement extends javax.swing.JPanel {
             jTextField2.setText(lname);
             jTextField3.setText(email);
             jTextField4.setText(mobile);
+            
 
             DefaultComboBoxModel comboBoxModel = (DefaultComboBoxModel) jComboBox1.getModel();
             comboBoxModel.setSelectedItem(userType);
-
+            
             address(id);
+            jButton3.setEnabled(true);
+        jButton2.setEnabled(true);
+        jButton1.setEnabled(false);
 
         }
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String mobile = jTextField4.getText();
+        try {
+            ResultSet resultset = MySQL.execute("SELECT * FROM `user` WHERE `mobile` = '"+mobile+"'");
+            if (resultset.next()) {
+            String id = resultset.getString("id");
+            
+            // Pass the ID to the AddAddress window
+            AddAddress ad = new AddAddress(adminHome, true, id);
+            ad.setVisible(true);
+            reset();
+            
+        } else {
+            // Handle the case where no matching record is found
+            JOptionPane.showMessageDialog(this, "No user found with the provided mobile number.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
