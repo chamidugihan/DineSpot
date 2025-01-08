@@ -204,7 +204,7 @@ public class SignIn extends javax.swing.JFrame {
         SignIn signIn = new SignIn();
         
         try {
-            UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatSolarizedDarkContrastIJTheme");
+            UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme");
             SwingUtilities.updateComponentTreeUI(this);
             this.pack();
             
