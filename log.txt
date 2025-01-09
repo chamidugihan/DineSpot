@@ -302,3 +302,103 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-01-09T16:48:15.327452100Z</date>
+  <millis>1736441295327</millis>
+  <nanos>452100</nanos>
+  <sequence>0</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.Menu</class>
+  <method>loadStocks</method>
+  <thread>27</thread>
+  <message>java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1</message>
+</record>
+<record>
+  <date>2025-01-09T16:48:15.369998300Z</date>
+  <millis>1736441295369</millis>
+  <nanos>998300</nanos>
+  <sequence>1</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.Menu</class>
+  <method>loadStocks</method>
+  <thread>27</thread>
+  <message>java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-01-09T17:03:09.721887500Z</date>
+  <millis>1736442189721</millis>
+  <nanos>887500</nanos>
+  <sequence>0</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.Menu</class>
+  <method>loadStocks</method>
+  <thread>27</thread>
+  <message>java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1</message>
+</record>
+<record>
+  <date>2025-01-09T17:03:09.764767300Z</date>
+  <millis>1736442189764</millis>
+  <nanos>767300</nanos>
+  <sequence>1</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.Menu</class>
+  <method>loadStocks</method>
+  <thread>27</thread>
+  <message>java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-01-09T17:14:43.734229100Z</date>
+  <millis>1736442883734</millis>
+  <nanos>229100</nanos>
+  <sequence>0</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.Menu</class>
+  <method>loadStocks</method>
+  <thread>27</thread>
+  <message>java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1</message>
+</record>
+<record>
+  <date>2025-01-09T17:14:43.776293700Z</date>
+  <millis>1736442883776</millis>
+  <nanos>293700</nanos>
+  <sequence>1</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.Menu</class>
+  <method>loadStocks</method>
+  <thread>27</thread>
+  <message>java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1</message>
+</record>
+</log>

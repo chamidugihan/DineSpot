@@ -14,6 +14,7 @@ import javax.swing.SwingUtilities;
 public class AdminHome extends javax.swing.JFrame {
 
     private UserManagement usermanagement;
+    private Menu menu;
     
     public AdminHome() {
         initComponents();
@@ -24,11 +25,24 @@ public class AdminHome extends javax.swing.JFrame {
         usermanagement = null;
         SwingUtilities.updateComponentTreeUI(jPanel3);
     }
+         
     
     public void addUserManagement() {
         if (usermanagement == null) {
             usermanagement = new UserManagement(this);
             jPanel3.add(usermanagement, BorderLayout.CENTER);
+            SwingUtilities.updateComponentTreeUI(jPanel3);
+        }
+    }
+        public void removeMenu() {
+        jPanel3.remove(menu);
+        menu = null;
+        SwingUtilities.updateComponentTreeUI(jPanel3);
+    } 
+     public void addMenu() {
+        if (menu == null) {
+            menu = new Menu(this);
+            jPanel3.add(menu, BorderLayout.CENTER);
             SwingUtilities.updateComponentTreeUI(jPanel3);
         }
     }
@@ -56,7 +70,13 @@ public class AdminHome extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Udeta Biwwada");
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/menu_1046849 (1).png"))); // NOI18N
+        jButton3.setText("Menu");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -65,8 +85,8 @@ public class AdminHome extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -74,9 +94,9 @@ public class AdminHome extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton3)
-                .addContainerGap(512, Short.MAX_VALUE))
+                .addContainerGap(498, Short.MAX_VALUE))
         );
 
         jPanel3.setLayout(new java.awt.BorderLayout());
@@ -107,8 +127,20 @@ public class AdminHome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        addUserManagement();
+        if(menu != null){
+            removeMenu();
+            addUserManagement();
+        }
+        addUserManagement();  
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+      if(usermanagement != null){
+            removeUserManagement();
+            addMenu();
+        }
+        addMenu();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
