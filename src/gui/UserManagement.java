@@ -31,6 +31,7 @@ public class UserManagement extends javax.swing.JPanel {
             log1.addHandler(handler1);
         } catch (Exception e) {
             e.printStackTrace();
+            log1.warning(e.toString());
         }
     }
 
@@ -52,10 +53,14 @@ public class UserManagement extends javax.swing.JPanel {
         jTextField2.setText("");
         jTextField3.setText("");
         jTextField4.setText("");
+        jPasswordField1.setText("");
         jComboBox1.setSelectedIndex(0);
         jButton3.setEnabled(false);
         jButton2.setEnabled(false);
         jButton1.setEnabled(true);
+        jTextField1.setEnabled(true);
+        jTextField2.setEnabled(true);
+        jTextField3.setEnabled(true);
         loadUserData();
     }
 
@@ -73,9 +78,10 @@ public class UserManagement extends javax.swing.JPanel {
 
             DefaultComboBoxModel model = new DefaultComboBoxModel(v);
             jComboBox1.setModel(model);
-            model.removeElementAt(0);
+            // model.removeElementAt(0);
 
         } catch (Exception e) {
+            e.printStackTrace();
             log1.warning(e.toString());
         }
     }
@@ -112,6 +118,7 @@ public class UserManagement extends javax.swing.JPanel {
             }
 
         } catch (Exception e) {
+            e.printStackTrace();
             log1.warning(e.toString());
         }
     }
@@ -139,6 +146,7 @@ public class UserManagement extends javax.swing.JPanel {
                 model1.addRow(vector1);
             }
         } catch (Exception e) {
+            e.printStackTrace();
             log1.warning(e.toString());
         }
     }
@@ -162,6 +170,8 @@ public class UserManagement extends javax.swing.JPanel {
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -214,6 +224,11 @@ public class UserManagement extends javax.swing.JPanel {
 
         jButton2.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jButton2.setText("Update User");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jButton3.setText("Add Address Details");
@@ -223,29 +238,34 @@ public class UserManagement extends javax.swing.JPanel {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
+        jLabel8.setText("Password");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField1)
+                    .addComponent(jTextField2)
+                    .addComponent(jTextField3)
+                    .addComponent(jTextField4)
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel8))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPasswordField1))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -268,6 +288,10 @@ public class UserManagement extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -277,7 +301,7 @@ public class UserManagement extends javax.swing.JPanel {
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTable1.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
@@ -434,6 +458,16 @@ public class UserManagement extends javax.swing.JPanel {
             jTextField2.setText(lname);
             jTextField3.setText(email);
             jTextField4.setText(mobile);
+            try {
+                ResultSet resultset = MySQL.execute("SELECT * FROM `user` WHERE `mobile` = '" + mobile + "'");
+                if (resultset.next()) {
+                    String password = resultset.getString("password");
+                    jPasswordField1.setText(password);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                log1.warning(e.toString());
+            }
 
             DefaultComboBoxModel comboBoxModel = (DefaultComboBoxModel) jComboBox1.getModel();
             comboBoxModel.setSelectedItem(userType);
@@ -442,6 +476,9 @@ public class UserManagement extends javax.swing.JPanel {
             jButton3.setEnabled(true);
             jButton2.setEnabled(true);
             jButton1.setEnabled(false);
+            jTextField1.setEnabled(false);
+            jTextField2.setEnabled(false);
+            jTextField3.setEnabled(false);
 
         }
     }//GEN-LAST:event_jTable1MouseClicked
@@ -461,10 +498,12 @@ public class UserManagement extends javax.swing.JPanel {
             } else {
                 // Handle the case where no matching record is found
                 JOptionPane.showMessageDialog(this, "No user found with the provided mobile number.", "Error", JOptionPane.ERROR_MESSAGE);
+
             }
 
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+            log1.warning(e.toString());
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -473,30 +512,38 @@ public class UserManagement extends javax.swing.JPanel {
         String lname = jTextField2.getText();
         String email = jTextField3.getText();
         String mobile = jTextField4.getText();
+        String password = String.valueOf(jPasswordField1.getPassword());
         String usertype = String.valueOf(jComboBox1.getSelectedItem());
 
         try {
             if (fname.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Please Enter first name", "Warning", JOptionPane.WARNING_MESSAGE);
-            } else if (fname.matches("'/^[A-Z]+$/i', \"abcAbc^Xyz\", $m")) {
-                JOptionPane.showMessageDialog(this, "First name not valid ", "Warning", JOptionPane.ERROR_MESSAGE);
-            } else if (lname.matches("'/^[A-Z]+$/i', \"abcAbc^Xyz\", $m")) {
-                JOptionPane.showMessageDialog(this, "Last name not valid", "Warning", JOptionPane.ERROR_MESSAGE);
+            } else if (!fname.matches("^[a-zA-Z]*$")) {
+                JOptionPane.showMessageDialog(this, "First name not valid ", "Warning", JOptionPane.WARNING_MESSAGE);
             } else if (lname.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Please Enter Last Name", "Warning", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please Enter Last Name", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (!lname.matches("^[a-zA-Z]*$")) {
+                JOptionPane.showMessageDialog(this, "Last name not valid", "Warning", JOptionPane.WARNING_MESSAGE);
             } else if (!email.matches("^(?=.{1,64}@)[A-Za-z0-9\\+_-]+(\\.[A-Za-z0-9\\+_-]+)*@"
                     + "[^-][A-Za-z0-9\\+-]+(\\.[A-Za-z0-9\\+-]+)*(\\.[A-Za-z]{2,})$")) {
-                JOptionPane.showMessageDialog(this, "Invalid Email", "Warning", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Invalid Email", "Warning", JOptionPane.WARNING_MESSAGE);
             } else if (email.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Please Enter Email", "Warning", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please Enter Email", "Warning", JOptionPane.WARNING_MESSAGE);
             } else if (mobile.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Please Enter Mobile Number", "Warning", JOptionPane.WARNING_MESSAGE);
             } else if (!mobile.matches("^07[01245678]{1}[0-9]{7}$")) {
-                JOptionPane.showMessageDialog(this, "Invalid Mobile", "Warning", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Invalid Mobile", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (password.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please Enter Password", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else if (usertype == "Select") {
+                JOptionPane.showMessageDialog(this, "Please Select a User Type", "Warning", JOptionPane.WARNING_MESSAGE);
             } else {
-                
+                String usertype_id = userTypeMap.get(usertype);
+                MySQL.execute("INSERT INTO `user` (`fname`,`lname`,`email`,`password`,`mobile`,`user_type_id`,`status_id`)VALUES('" + fname + "','" + lname + "','" + email + "','" + password + "','" + mobile + "','" + usertype_id + "',1)");
+                reset();
             }
         } catch (Exception e) {
+            e.printStackTrace();
             log1.warning(e.toString());
         }
 
@@ -509,6 +556,31 @@ public class UserManagement extends javax.swing.JPanel {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String email = jTextField3.getText();
+        String mobile = jTextField4.getText();
+        String password = String.valueOf(jPasswordField1.getPassword());
+        String usertype = String.valueOf(jComboBox1.getSelectedItem());
+        if (mobile.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter Mobile Number", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (!mobile.matches("^07[01245678]{1}[0-9]{7}$")) {
+            JOptionPane.showMessageDialog(this, "Invalid Mobile", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter Password", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (usertype == "Select") {
+            JOptionPane.showMessageDialog(this, "Please Select a User Type", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            String usertype_id = userTypeMap.get(usertype);
+            try {
+                MySQL.execute("UPDATE `user` SET `password`='" + password + "',`mobile`='" + mobile + "',`password`='" + password + "',`user_type_id`='" + usertype_id + "' WHERE `email`='" + email + "' ");
+            } catch (Exception e) {
+                e.printStackTrace();
+                log1.warning(e.toString());
+            }
+            reset();
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -524,8 +596,10 @@ public class UserManagement extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;

@@ -192,7 +192,7 @@ public class AddAddress extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Line 1 can't be empty", "Warning", JOptionPane.WARNING_MESSAGE);
         }else{
             try {
-                MySQL.execute("INSERT INTO `address` (`line1`,`line2`,`city_id`,`user_id`)VALUES('"+line_1+"','"+line_2+"','"+id+"','"+city_id+"')");
+                MySQL.execute("INSERT INTO `address` (`line1`,`line2`,`city_id`,`user_id`)VALUES('"+line_1+"','"+line_2+"','"+city_id+"','"+id+"')");
             } catch (Exception e) {
                 e.printStackTrace();
             }
