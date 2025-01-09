@@ -62,6 +62,8 @@ public class UserManagement extends javax.swing.JPanel {
         jTextField2.setEnabled(true);
         jTextField3.setEnabled(true);
         loadUserData();
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+model.setRowCount(0);
     }
 
     public void loadUserType() {
@@ -360,6 +362,11 @@ public class UserManagement extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
         if (jTable2.getColumnModel().getColumnCount() > 0) {
             jTable2.getColumnModel().getColumn(0).setResizable(false);
@@ -581,6 +588,25 @@ public class UserManagement extends javax.swing.JPanel {
             reset();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        if(evt.getClickCount() == 2){
+            int selectedRow = jTable2.getSelectedRow();
+
+        if (selectedRow != -1) {
+            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+
+            String id = String.valueOf(model.getValueAt(selectedRow, 0));
+            String line1 = String.valueOf(model.getValueAt(selectedRow, 2));
+            String line2 = String.valueOf(model.getValueAt(selectedRow, 3));
+            String city = String.valueOf(model.getValueAt(selectedRow, 4));
+            
+            UpdateAddress upa = new UpdateAddress(adminHome, true, id, line1, line2, city);
+            upa.setVisible(true);
+            reset();
+        }
+        }
+    }//GEN-LAST:event_jTable2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
