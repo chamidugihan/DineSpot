@@ -63,7 +63,7 @@ public class UserManagement extends javax.swing.JPanel {
         jTextField3.setEnabled(true);
         loadUserData();
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-model.setRowCount(0);
+        model.setRowCount(0);
     }
 
     public void loadUserType() {
@@ -448,44 +448,59 @@ model.setRowCount(0);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        if (evt.getClickCount() == 2) {
+             int selectedRow = jTable1.getSelectedRow();
 
-        int selectedRow = jTable1.getSelectedRow();
+            if (selectedRow != -1) {
+                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 
-        if (selectedRow != -1) {
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-
-            int id = Integer.parseInt(String.valueOf(model.getValueAt(selectedRow, 0)));
-            String fname = String.valueOf(model.getValueAt(selectedRow, 1));
-            String lname = String.valueOf(model.getValueAt(selectedRow, 2));
-            String email = String.valueOf(model.getValueAt(selectedRow, 3));
-            String mobile = String.valueOf(model.getValueAt(selectedRow, 4));
-            String userType = String.valueOf(model.getValueAt(selectedRow, 5));
-
-            jTextField1.setText(fname);
-            jTextField2.setText(lname);
-            jTextField3.setText(email);
-            jTextField4.setText(mobile);
-            try {
-                ResultSet resultset = MySQL.execute("SELECT * FROM `user` WHERE `mobile` = '" + mobile + "'");
-                if (resultset.next()) {
-                    String password = resultset.getString("password");
-                    jPasswordField1.setText(password);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                log1.warning(e.toString());
+                String id = String.valueOf(model.getValueAt(selectedRow, 0));
+                
+                UserStatus ut = new UserStatus(adminHome, true, id);
+                ut.setVisible(true);
+                
+                reset();
             }
+            
+        } else {
+            int selectedRow = jTable1.getSelectedRow();
 
-            DefaultComboBoxModel comboBoxModel = (DefaultComboBoxModel) jComboBox1.getModel();
-            comboBoxModel.setSelectedItem(userType);
+            if (selectedRow != -1) {
+                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 
-            address(id);
-            jButton3.setEnabled(true);
-            jButton2.setEnabled(true);
-            jButton1.setEnabled(false);
-            jTextField1.setEnabled(false);
-            jTextField2.setEnabled(false);
-            jTextField3.setEnabled(false);
+                int id = Integer.parseInt(String.valueOf(model.getValueAt(selectedRow, 0)));
+                String fname = String.valueOf(model.getValueAt(selectedRow, 1));
+                String lname = String.valueOf(model.getValueAt(selectedRow, 2));
+                String email = String.valueOf(model.getValueAt(selectedRow, 3));
+                String mobile = String.valueOf(model.getValueAt(selectedRow, 4));
+                String userType = String.valueOf(model.getValueAt(selectedRow, 5));
+
+                jTextField1.setText(fname);
+                jTextField2.setText(lname);
+                jTextField3.setText(email);
+                jTextField4.setText(mobile);
+                try {
+                    ResultSet resultset = MySQL.execute("SELECT * FROM `user` WHERE `mobile` = '" + mobile + "'");
+                    if (resultset.next()) {
+                        String password = resultset.getString("password");
+                        jPasswordField1.setText(password);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    log1.warning(e.toString());
+                }
+
+                DefaultComboBoxModel comboBoxModel = (DefaultComboBoxModel) jComboBox1.getModel();
+                comboBoxModel.setSelectedItem(userType);
+
+                address(id);
+                jButton3.setEnabled(true);
+                jButton2.setEnabled(true);
+                jButton1.setEnabled(false);
+                jTextField1.setEnabled(false);
+                jTextField2.setEnabled(false);
+                jTextField3.setEnabled(false);
+            }
 
         }
     }//GEN-LAST:event_jTable1MouseClicked
@@ -590,21 +605,21 @@ model.setRowCount(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-        if(evt.getClickCount() == 2){
+        if (evt.getClickCount() == 2) {
             int selectedRow = jTable2.getSelectedRow();
 
-        if (selectedRow != -1) {
-            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+            if (selectedRow != -1) {
+                DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
 
-            String id = String.valueOf(model.getValueAt(selectedRow, 0));
-            String line1 = String.valueOf(model.getValueAt(selectedRow, 2));
-            String line2 = String.valueOf(model.getValueAt(selectedRow, 3));
-            String city = String.valueOf(model.getValueAt(selectedRow, 4));
-            
-            UpdateAddress upa = new UpdateAddress(adminHome, true, id, line1, line2, city);
-            upa.setVisible(true);
-            reset();
-        }
+                String id = String.valueOf(model.getValueAt(selectedRow, 0));
+                String line1 = String.valueOf(model.getValueAt(selectedRow, 2));
+                String line2 = String.valueOf(model.getValueAt(selectedRow, 3));
+                String city = String.valueOf(model.getValueAt(selectedRow, 4));
+
+                UpdateAddress upa = new UpdateAddress(adminHome, true, id, line1, line2, city);
+                upa.setVisible(true);
+                reset();
+            }
         }
     }//GEN-LAST:event_jTable2MouseClicked
 
