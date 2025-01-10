@@ -159,7 +159,7 @@ public class TableReservationDashboard extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -171,6 +171,7 @@ public class TableReservationDashboard extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
             jTable1.getColumnModel().getColumn(1).setResizable(false);
             jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(3).setResizable(false);
             jTable1.getColumnModel().getColumn(4).setResizable(false);
             jTable1.getColumnModel().getColumn(5).setResizable(false);
             jTable1.getColumnModel().getColumn(6).setResizable(false);
@@ -245,14 +246,14 @@ public class TableReservationDashboard extends javax.swing.JFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
                             .addComponent(jLabel5)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel6)
@@ -271,7 +272,7 @@ public class TableReservationDashboard extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton5)
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -309,23 +310,23 @@ public class TableReservationDashboard extends javax.swing.JFrame {
         int guestsNo = jSpinField1.getValue();
         Date reservedDate = jDateChooser1.getDate();
         String time = jTimeChooser2.getFormatedTime();
-        
-        if(cusName.isEmpty()){
+
+        if (cusName.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please Enter Customer Name", "Warning", JOptionPane.WARNING_MESSAGE);
-        }else if(!cusName.matches("^[a-zA-Z]*$")){
-            JOptionPane.showMessageDialog(this, "Please Enter Customer Name", "Warning", JOptionPane.WARNING_MESSAGE);
-        }else if(cusMobile.isEmpty()){
+        } else if (!cusName.matches("^[a-zA-Z]*$")) {
+            JOptionPane.showMessageDialog(this, "Invalid Customer Name", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (cusMobile.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please Enter Customer Mobile Number", "Warning", JOptionPane.WARNING_MESSAGE);
-            }else if(!cusMobile.matches("^07[01245678]{1}[0-9]{7}$")){
+        } else if (!cusMobile.matches("^07[01245678]{1}[0-9]{7}$")) {
             JOptionPane.showMessageDialog(this, "Invalid Mobile Number", "Warning", JOptionPane.WARNING_MESSAGE);
-        }else if(guestsNo == 1){
+        } else if (guestsNo == 0) {
             JOptionPane.showMessageDialog(this, "Invalid Guest Number", "Warning", JOptionPane.WARNING_MESSAGE);
-        }else if(!new Date().before(reservedDate)){
+        } else if (!new Date().before(reservedDate)) {
             JOptionPane.showMessageDialog(this, "Invalid Reservation Date", "Warning", JOptionPane.WARNING_MESSAGE);
-        }else if(time.equals("00.00")){
+        } else if (time.equals("00.00")) {
             JOptionPane.showMessageDialog(this, "Invalid Reservation Time", "Warning", JOptionPane.WARNING_MESSAGE);
-        }else{
-            
+        } else {
+
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -335,11 +336,11 @@ public class TableReservationDashboard extends javax.swing.JFrame {
 
     private void jTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyPressed
         String cusMobile = jTextField3.getText();
-        
-        if(cusMobile.isEmpty()){
+
+        if (cusMobile.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please Enter Customer Name", "Warning", JOptionPane.WARNING_MESSAGE);
-        }else{
-            
+        } else {
+
         }
     }//GEN-LAST:event_jTextField3KeyPressed
 

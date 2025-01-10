@@ -21,8 +21,9 @@ public class AddAddress extends javax.swing.JDialog {
      * Creates new form AddAddress
      */
     private static String id;
-    
+
     HashMap<String, String> city = new HashMap<>();
+
     public AddAddress(java.awt.Frame parent, boolean modal, String id) {
         super(parent, modal);
         initComponents();
@@ -30,6 +31,7 @@ public class AddAddress extends javax.swing.JDialog {
         this.id = id;
         loadCity();
     }
+
     public void loadCity() {
         try {
 
@@ -40,7 +42,7 @@ public class AddAddress extends javax.swing.JDialog {
             while (resultSet.next()) {
                 v.add(resultSet.getString("name"));
                 this.city.put(resultSet.getString("name"), resultSet.getString("id"));
-                
+
             }
 
             DefaultComboBoxModel model = new DefaultComboBoxModel(v);
@@ -182,17 +184,17 @@ public class AddAddress extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       String line_1 = jTextField1.getText();
-       String line_2 = jTextField2.getText();
-       String city = jComboBox1.getSelectedItem().toString();
-       String city_id = this.city.get(city);
-        if(line_1.isEmpty()){
+        String line_1 = jTextField1.getText();
+        String line_2 = jTextField2.getText();
+        String city = jComboBox1.getSelectedItem().toString();
+        String city_id = this.city.get(city);
+        if (line_1.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Line 1 can't be empty", "Warning", JOptionPane.WARNING_MESSAGE);
-        }else if(line_2.isEmpty()){
+        } else if (line_2.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Line 1 can't be empty", "Warning", JOptionPane.WARNING_MESSAGE);
-        }else{
+        } else {
             try {
-                MySQL.execute("INSERT INTO `address` (`line1`,`line2`,`city_id`,`user_id`)VALUES('"+line_1+"','"+line_2+"','"+city_id+"','"+id+"')");
+                MySQL.execute("INSERT INTO `address` (`line1`,`line2`,`city_id`,`user_id`)VALUES('" + line_1 + "','" + line_2 + "','" + city_id + "','" + id + "')");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -230,8 +232,8 @@ public class AddAddress extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
-                AddAddress dialog = new AddAddress(new javax.swing.JFrame(), true, id );
+
+                AddAddress dialog = new AddAddress(new javax.swing.JFrame(), true, id);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
