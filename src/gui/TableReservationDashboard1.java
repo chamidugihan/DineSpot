@@ -1,76 +1,27 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package gui;
 
-import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
+import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Vector;
-import java.util.logging.FileHandler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
-import model.MySQL;
 import model.UserBean;
-
 
 /**
  *
- * @author user
+ * @author M. R. P. De Silva
  */
-public class TableReservationDashboard extends javax.swing.JPanel {
-
-    private AdminHome adminHome;
-    HashMap<String, String> tableMap = new HashMap<>();
-    private static java.util.logging.Logger log1;
-    private static FileHandler handler1;
-
+public class TableReservationDashboard1 extends javax.swing.JFrame {
+private AdminHome adminHome;
     /**
      * Creates new form TableReservationDashboard
      */
-    static {
-        try {
-            log1 = java.util.logging.Logger.getLogger("log1");
-            handler1 = new FileHandler("log.txt", true);
-            log1.addHandler(handler1);
-        } catch (Exception e) {
-            e.printStackTrace();
-            log1.warning(e.toString());
-        }
-    }
-
-    public TableReservationDashboard(AdminHome adminHome) {
+    public TableReservationDashboard1(AdminHome adminHome) {
         initComponents();
         this.adminHome = adminHome;
-        loadTable();
-
-    }
-
-    public void loadTable() {
-        try {
-
-            ResultSet resultSet = MySQL.execute("SELECT * FROM `table`");
-
-            Vector<String> v = new Vector<>();
-            v.add("Select");
-            while (resultSet.next()) {
-                v.add(resultSet.getString("name"));
-                this.tableMap.put(resultSet.getString("name"), resultSet.getString("id"));
-            }
-
-            DefaultComboBoxModel model = new DefaultComboBoxModel(v);
-            jComboBox1.setModel(model);
-//             model.removeElementAt(0);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            log1.warning(e.toString());
-        }
     }
 
     /**
@@ -82,6 +33,7 @@ public class TableReservationDashboard extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -108,6 +60,11 @@ public class TableReservationDashboard extends javax.swing.JPanel {
         jSpinField1 = new com.toedter.components.JSpinField();
         jTimeChooser2 = new lu.tudor.santec.jtimechooser.JTimeChooser();
         jButton5 = new javax.swing.JButton();
+
+        jLabel1.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
+        jLabel1.setText("First Name");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel2.setFont(new java.awt.Font("Noto Serif Hebrew", 1, 26)); // NOI18N
         jLabel2.setText("Table Reservation");
@@ -137,7 +94,7 @@ public class TableReservationDashboard extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jLabel8.setText("From Time");
 
-        jPanel2.setLayout(new java.awt.GridLayout());
+        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
         jButton1.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jButton1.setText("Add Reservation");
@@ -150,11 +107,6 @@ public class TableReservationDashboard extends javax.swing.JPanel {
 
         jButton2.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jButton2.setText("Update Reservation Details");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
         jPanel2.add(jButton2);
 
         jTextField3.setFont(new java.awt.Font("Cambria", 0, 15)); // NOI18N
@@ -218,6 +170,14 @@ public class TableReservationDashboard extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(4).setResizable(false);
+            jTable1.getColumnModel().getColumn(5).setResizable(false);
+            jTable1.getColumnModel().getColumn(6).setResizable(false);
+        }
 
         jPanel4.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
@@ -314,14 +274,14 @@ public class TableReservationDashboard extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton5)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -336,72 +296,62 @@ public class TableReservationDashboard extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String cusName = jTextField1.getText();
-        String cusMobile = jTextField2.getText();
-        int guestsNo = jSpinField1.getValue();
-        Date reservedDate = jDateChooser1.getDate(); 
-        String time = jTimeChooser2.getFormatedTime();
-        String table = String.valueOf(jComboBox1.getSelectedIndex());
-         UserBean us = new UserBean();
-        int id =us.getId();
-        
-       LocalDate currentDate = LocalDate.now(); 
-       
-        if (cusName.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please Enter Customer Name", "Warning", JOptionPane.WARNING_MESSAGE);
-        } else if (!cusName.matches("^[a-zA-Z]*$")) {
-            JOptionPane.showMessageDialog(this, "Please Enter Customer Name", "Warning", JOptionPane.WARNING_MESSAGE);
-        } else if (cusMobile.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please Enter Customer Mobile Number", "Warning", JOptionPane.WARNING_MESSAGE);
-        } else if (!cusMobile.matches("^07[01245678]{1}[0-9]{7}$")) {
-            JOptionPane.showMessageDialog(this, "Invalid Mobile Number", "Warning", JOptionPane.WARNING_MESSAGE);
-        } else if (guestsNo == 0) {
-            JOptionPane.showMessageDialog(this, "Invalid Guest Number", "Warning", JOptionPane.WARNING_MESSAGE);
-        } else if (!new Date().before(reservedDate)) {
-            JOptionPane.showMessageDialog(this, "Invalid Reservation Date", "Warning", JOptionPane.WARNING_MESSAGE);
-        } else if (time.equals("00.00")) {
-            JOptionPane.showMessageDialog(this, "Invalid Reservation Time", "Warning", JOptionPane.WARNING_MESSAGE);
-        } else {
-            String table_id = tableMap.get(table);
-             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String formattedDate = dateFormat.format(reservedDate); 
-            try {
-                MySQL.execute("INSERT INTO `reservation` (`customer_name`,`num_guests`,`mobile`,`date`,`time`,`user_id`,`table_id`)VALUES('" + cusName + "','" + guestsNo + "','" + cusMobile + "','" + formattedDate + "','" + time + "','" + id + "','" + table + "')");
-//                reset();
-            } catch (Exception ex) {
-                 log1.warning(ex.toString());
-                ex.printStackTrace();
-            }
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyPressed
-        String cusMobile = jTextField3.getText();
-
-        if (cusMobile.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please Enter Customer Name", "Warning", JOptionPane.WARNING_MESSAGE);
-        } else {
-           
-        }
-    }//GEN-LAST:event_jTextField3KeyPressed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       
-       
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         TableReservationAdvancedSearch tableReservationAdvancedSearch = new TableReservationAdvancedSearch();
         tableReservationAdvancedSearch.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String cusName = jTextField1.getText();
+        String cusMobile = jTextField2.getText();
+        int guestsNo = jSpinField1.getValue();
+        Date reservedDate = jDateChooser1.getDate();
+        String time = jTimeChooser2.getFormatedTime();
+        
+        if(cusName.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please Enter Customer Name", "Warning", JOptionPane.WARNING_MESSAGE);
+        }else if(!cusName.matches("^[a-zA-Z]*$")){
+            JOptionPane.showMessageDialog(this, "Please Enter Customer Name", "Warning", JOptionPane.WARNING_MESSAGE);
+        }else if(cusMobile.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please Enter Customer Mobile Number", "Warning", JOptionPane.WARNING_MESSAGE);
+            }else if(!cusMobile.matches("^07[01245678]{1}[0-9]{7}$")){
+            JOptionPane.showMessageDialog(this, "Invalid Mobile Number", "Warning", JOptionPane.WARNING_MESSAGE);
+        }else if(guestsNo == 1){
+            JOptionPane.showMessageDialog(this, "Invalid Guest Number", "Warning", JOptionPane.WARNING_MESSAGE);
+        }else if(!new Date().before(reservedDate)){
+            JOptionPane.showMessageDialog(this, "Invalid Reservation Date", "Warning", JOptionPane.WARNING_MESSAGE);
+        }else if(time.equals("00.00")){
+            JOptionPane.showMessageDialog(this, "Invalid Reservation Time", "Warning", JOptionPane.WARNING_MESSAGE);
+        }else{
+            
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        UserBean userBean = new UserBean();
+         userBean.getId();
+         System.out.println(userBean.getId());
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyPressed
+        String cusMobile = jTextField3.getText();
+        
+        if(cusMobile.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please Enter Customer Name", "Warning", JOptionPane.WARNING_MESSAGE);
+        }else{
+            
+        }
+    }//GEN-LAST:event_jTextField3KeyPressed
+
+    /**
+     * @param args the command line arguments
+     */
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -410,6 +360,7 @@ public class TableReservationDashboard extends javax.swing.JPanel {
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

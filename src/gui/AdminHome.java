@@ -15,18 +15,19 @@ public class AdminHome extends javax.swing.JFrame {
 
     private UserManagement usermanagement;
     private Menu menu;
+    private TableReservationDashboard trd;
+
     
     public AdminHome() {
         initComponents();
     }
-    
+
     public void removeUserManagement() {
         jPanel3.remove(usermanagement);
         usermanagement = null;
         SwingUtilities.updateComponentTreeUI(jPanel3);
     }
-         
-    
+
     public void addUserManagement() {
         if (usermanagement == null) {
             usermanagement = new UserManagement(this);
@@ -34,15 +35,25 @@ public class AdminHome extends javax.swing.JFrame {
             SwingUtilities.updateComponentTreeUI(jPanel3);
         }
     }
-        public void removeMenu() {
+
+    public void removeMenu() {
         jPanel3.remove(menu);
         menu = null;
         SwingUtilities.updateComponentTreeUI(jPanel3);
-    } 
-     public void addMenu() {
+    }
+
+    public void addMenu() {
         if (menu == null) {
             menu = new Menu(this);
             jPanel3.add(menu, BorderLayout.CENTER);
+            SwingUtilities.updateComponentTreeUI(jPanel3);
+        }
+    }
+
+    public void addtable() {
+        if (trd == null) {
+            trd = new TableReservationDashboard(this);
+            jPanel3.add(trd, BorderLayout.CENTER);
             SwingUtilities.updateComponentTreeUI(jPanel3);
         }
     }
@@ -59,6 +70,7 @@ public class AdminHome extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,11 +82,19 @@ public class AdminHome extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/menu_1046849 (1).png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/menu (1).png"))); // NOI18N
         jButton3.setText("Menu");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/menu (1).png"))); // NOI18N
+        jButton4.setText("Menu");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
             }
         });
 
@@ -86,8 +106,9 @@ public class AdminHome extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,7 +117,9 @@ public class AdminHome extends javax.swing.JFrame {
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton3)
-                .addContainerGap(498, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton4)
+                .addContainerGap(455, Short.MAX_VALUE))
         );
 
         jPanel3.setLayout(new java.awt.BorderLayout());
@@ -110,7 +133,7 @@ public class AdminHome extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(880, Short.MAX_VALUE))
+                .addContainerGap(870, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,20 +150,24 @@ public class AdminHome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(menu != null){
+        if (menu != null) {
             removeMenu();
             addUserManagement();
         }
-        addUserManagement();  
+        addUserManagement();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-      if(usermanagement != null){
+        if (usermanagement != null) {
             removeUserManagement();
             addMenu();
         }
         addMenu();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        addtable();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,6 +207,7 @@ public class AdminHome extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables

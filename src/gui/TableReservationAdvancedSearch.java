@@ -46,6 +46,7 @@ public class TableReservationAdvancedSearch extends javax.swing.JFrame {
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLabel3.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jLabel3.setText("Customer Name");

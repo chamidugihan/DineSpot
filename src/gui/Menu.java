@@ -9,6 +9,7 @@ import java.awt.event.KeyEvent;
 import java.lang.System.Logger;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Vector;
@@ -27,7 +28,6 @@ public class Menu extends javax.swing.JPanel {
     HashMap<String, String> sizeMap = new HashMap<>();
     private static java.util.logging.Logger log1;
     private static FileHandler handler1;
-    
 
     static {
         try {
@@ -49,20 +49,23 @@ public class Menu extends javax.swing.JPanel {
         setupSearchFunctionality();
         loadsortsize();
         jButton2.setEnabled(false);
+        setupSortFunctionality1();
     }
 
-    
- 
-    private void loadsortsize(){
+    private void loadsortsize() {
         try {
 
             ResultSet resultSet2 = MySQL.execute("SELECT * FROM `size`");
+            ResultSet resultSet3 = MySQL.execute("SELECT * FROM `menu_type`");
 
             Vector<String> v1 = new Vector<>();
             v1.add("All");
             while (resultSet2.next()) {
                 v1.add(resultSet2.getString("size"));
-                
+            }
+            while (resultSet3.next()) {
+                v1.add(resultSet3.getString("name"));
+
             }
 
             DefaultComboBoxModel model = new DefaultComboBoxModel(v1);
@@ -74,72 +77,27 @@ public class Menu extends javax.swing.JPanel {
             log1.warning(e.toString());
         }
     }
-    private void loadStocks() {
-        try {
 
-            int row = jTable1.getSelectedRow();
-            String query = "SELECT * FROM `menu` "
-                    + "INNER JOIN `menu_type` ON "
-                    + "`menu_type`.`id` = `menu`.`menu_type_id` "
-                    + "INNER JOIN `size` ON "
-                    + "`size`.`id` = `menu`.`size_id` ";
-            if (row != -1) {
-                String id2 = String.valueOf(jTable1.getValueAt(row, 0));
-                query += "WHERE `menu`.`id` = '" + id2 + "' ";
-            }
- 
-            String sort = String.valueOf(jComboBox4.getSelectedItem());
-
-            query += "WHERE ";
-
-            if (sort.equals("full")) {
-                query += "`size`.`id` = 2 ";
-            }else if (sort.equals("small")) {
-               query += "`size`.`id` = 1 ";
-            }else if(sort.equals("All")){
-               query += "`size`.`id` = 1 OR  `size`.`id` = 2";
-            }
-
-            ResultSet resultSet = MySQL.execute(query);
-
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-
-            while (resultSet.next()) {
-                Vector<String> vector = new Vector<>();
-                vector.add(resultSet.getString("menu.id"));
-                vector.add(resultSet.getString("menu.name"));
-                vector.add(resultSet.getString("price"));
-                vector.add(resultSet.getString("description"));
-                vector.add(resultSet.getString("menu_type.name"));
-                vector.add(resultSet.getString("size.size"));
-                model.addRow(vector);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            log1.warning(e.toString());
-        }
-    }
     public void setupSearchFunctionality() {
-    jTextField2.setColumns(20);
+        jTextField2.setColumns(20);
 
-    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
-    jTable1.setRowSorter(sorter);
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+        jTable1.setRowSorter(sorter);
 
-    jTextField2.addKeyListener(new KeyAdapter() {
-        @Override
-        public void keyReleased(KeyEvent e) {
-            String searchText = jTextField2.getText().toLowerCase();
-            if (searchText.trim().isEmpty()) {
-                sorter.setRowFilter(null);
-            } else {
-                sorter.setRowFilter(RowFilter.regexFilter("(?i)^" + searchText, 1)); 
+        jTextField2.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                String searchText = jTextField2.getText().toLowerCase();
+                if (searchText.trim().isEmpty()) {
+                    sorter.setRowFilter(null);
+                } else {
+                    sorter.setRowFilter(RowFilter.regexFilter("(?i)^" + searchText, 1));
+                }
             }
-        }
-    });
+        });
     }
+
     public void reset() {
         jTextField1.setText("");
         jFormattedTextField3.setText("0");
@@ -173,6 +131,30 @@ public class Menu extends javax.swing.JPanel {
             e.printStackTrace();
             log1.warning(e.toString());
         }
+    }
+
+    ///that code chat gpt
+    public void setupSortFunctionality1() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+        jTable1.setRowSorter(sorter);
+
+// Add an action listener to the JComboBox for sorting
+        jComboBox4.addActionListener(e -> {
+            String selectedSize = (String) jComboBox4.getSelectedItem();
+            if (selectedSize == null || selectedSize.equalsIgnoreCase("All")) {
+                sorter.setRowFilter(null); // Show all rows if "All" is selected
+            } else {
+                RowFilter<DefaultTableModel, Object> sizeFilter = RowFilter.regexFilter("(?i)^" + selectedSize, 5);
+                RowFilter<DefaultTableModel, Object> typeFilter = RowFilter.regexFilter("(?i)^" + selectedSize, 4);
+
+                ArrayList<RowFilter<DefaultTableModel, Object>> filters = new ArrayList<>();
+                filters.add(sizeFilter);
+                filters.add(typeFilter);
+
+                sorter.setRowFilter(RowFilter.orFilter(filters));
+            }
+        });
     }
 
     public void loadSize() {
@@ -264,7 +246,7 @@ public class Menu extends javax.swing.JPanel {
         jFormattedTextField1.setText("jFormattedTextField1");
 
         jLabel2.setFont(new java.awt.Font("Noto Serif Hebrew", 1, 26)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/menu_1046849.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/menu.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jLabel1.setText("Name");
@@ -304,7 +286,6 @@ public class Menu extends javax.swing.JPanel {
         jScrollPane2.setViewportView(jTextArea1);
 
         jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
-        jFormattedTextField3.setText("0");
         jFormattedTextField3.setFont(new java.awt.Font("Bahnschrift", 0, 15)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -539,7 +520,7 @@ public class Menu extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       int row = jTable1.getSelectedRow();
+        int row = jTable1.getSelectedRow();
         String id = String.valueOf(jTable1.getValueAt(row, 0));
         String name = jTextField1.getText();
         String price = jFormattedTextField3.getText();
@@ -576,7 +557,7 @@ public class Menu extends javax.swing.JPanel {
         if (selectedRow != -1) {
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 
-           // String idi = String.valueOf(model.getValueAt(selectedRow, 0));
+            // String idi = String.valueOf(model.getValueAt(selectedRow, 0));
             String name = String.valueOf(model.getValueAt(selectedRow, 1));
             String price = String.valueOf(model.getValueAt(selectedRow, 2));
             String des = String.valueOf(model.getValueAt(selectedRow, 3));
@@ -592,7 +573,6 @@ public class Menu extends javax.swing.JPanel {
             typec.setSelectedItem(type);
             sizec.setSelectedItem(size);
 
-            
             jButton1.setEnabled(false);
             jButton2.setEnabled(true);
             jComboBox2.setEnabled(false);
@@ -613,7 +593,7 @@ public class Menu extends javax.swing.JPanel {
     }//GEN-LAST:event_jComboBox4ActionPerformed
 
     private void jComboBox4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox4ItemStateChanged
-       loadStocks();
+        //loadStocks();
     }//GEN-LAST:event_jComboBox4ItemStateChanged
 
 
