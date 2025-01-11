@@ -19,12 +19,14 @@ import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import model.MySQL;
+import model.UserBean;
 
 public class Menu extends javax.swing.JPanel {
 
     private AdminHome adminHome;
     HashMap<String, String> menuType = new HashMap<>();
     HashMap<String, String> sizeMap = new HashMap<>();
+    
     private static java.util.logging.Logger log1;
     private static FileHandler handler1;
     
@@ -49,10 +51,10 @@ public class Menu extends javax.swing.JPanel {
         setupSearchFunctionality();
         loadsortsize();
         jButton2.setEnabled(false);
+        
+//        System.out.println(AdminHome.getUserBean().getId());
     }
 
-    
- 
     private void loadsortsize(){
         try {
 
@@ -78,12 +80,15 @@ public class Menu extends javax.swing.JPanel {
         try {
 
             int row = jTable1.getSelectedRow();
+            
             String query = "SELECT * FROM `menu` "
                     + "INNER JOIN `menu_type` ON "
                     + "`menu_type`.`id` = `menu`.`menu_type_id` "
                     + "INNER JOIN `size` ON "
                     + "`size`.`id` = `menu`.`size_id` ";
+            
             if (row != -1) {
+                
                 String id2 = String.valueOf(jTable1.getValueAt(row, 0));
                 query += "WHERE `menu`.`id` = '" + id2 + "' ";
             }
@@ -256,10 +261,11 @@ public class Menu extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
         jComboBox4 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jFormattedTextField1.setText("jFormattedTextField1");
 
@@ -300,12 +306,13 @@ public class Menu extends javax.swing.JPanel {
         });
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
         jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
         jFormattedTextField3.setText("0");
-        jFormattedTextField3.setFont(new java.awt.Font("Bahnschrift", 0, 15)); // NOI18N
+        jFormattedTextField3.setFont(new java.awt.Font("Cambria", 0, 15)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -332,27 +339,27 @@ public class Menu extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addGap(12, 12, 12)
-                .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(148, 148, 148))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/close.png"))); // NOI18N
@@ -394,16 +401,14 @@ public class Menu extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE))
         );
 
         jLabel9.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
@@ -422,6 +427,13 @@ public class Menu extends javax.swing.JPanel {
             }
         });
 
+        jTextField2.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
+        jLabel6.setText("Name");
+
+        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
+
         jButton1.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jButton1.setText("Add Menu");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -429,6 +441,7 @@ public class Menu extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel3.add(jButton1);
 
         jButton2.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jButton2.setText("Update Menu");
@@ -437,11 +450,7 @@ public class Menu extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        jTextField2.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
-
-        jLabel6.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
-        jLabel6.setText("Name");
+        jPanel3.add(jButton2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -456,16 +465,6 @@ public class Menu extends javax.swing.JPanel {
                         .addGap(85, 85, 85)
                         .addComponent(jLabel2)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jLabel9)
@@ -477,7 +476,15 @@ public class Menu extends javax.swing.JPanel {
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton4)
-                        .addGap(14, 14, 14))))
+                        .addGap(14, 14, 14))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -495,14 +502,11 @@ public class Menu extends javax.swing.JPanel {
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 447, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))
-                        .addGap(0, 12, Short.MAX_VALUE))))
+                        .addGap(21, 21, 21)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -514,24 +518,35 @@ public class Menu extends javax.swing.JPanel {
         String size = String.valueOf(jComboBox3.getSelectedItem());
 
         try {
+            
             if (name.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Please Enter Food name", "Warning", JOptionPane.WARNING_MESSAGE);
+            
             } else if (price.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Please Enter Price", "Warning", JOptionPane.WARNING_MESSAGE);
+            
+            }else if (price.equals("0")) {
+                JOptionPane.showMessageDialog(this, "Invalid Price", "Warning", JOptionPane.WARNING_MESSAGE);
+            
             } else if (!price.matches("^\\d*(\\.\\d{1,3})?$")) {
                 JOptionPane.showMessageDialog(this, "Please valid Price", "Warning", JOptionPane.WARNING_MESSAGE);
+            
             } else if (des.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "please Enter Description", "Warning", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please Enter Description", "Warning", JOptionPane.WARNING_MESSAGE);
+            
             } else if (type == "Select") {
                 JOptionPane.showMessageDialog(this, "Please Select the Food Type", "Warning", JOptionPane.WARNING_MESSAGE);
+            
             } else if (size == "Select") {
                 JOptionPane.showMessageDialog(this, "Please Select the Food Size", "Warning", JOptionPane.WARNING_MESSAGE);
+            
             } else {
                 String menutype_id = menuType.get(type);
                 String size_id = sizeMap.get(size);
                 MySQL.execute("INSERT INTO `menu` (`name`,`price`,`description`,`menu_type_id`,`size_id`)VALUES('" + name + "','" + price + "','" + des + "','" + menutype_id + "','" + size_id + "')");
                 reset();
             }
+            
         } catch (Exception e) {
             e.printStackTrace();
             log1.warning(e.toString());
@@ -636,6 +651,7 @@ public class Menu extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;

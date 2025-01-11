@@ -4,7 +4,11 @@
  */
 package gui;
 
+import java.sql.ResultSet;
+import java.util.Date;
+import java.util.logging.FileHandler;
 import javax.swing.JOptionPane;
+import model.MySQL;
 
 /**
  *
@@ -12,9 +16,20 @@ import javax.swing.JOptionPane;
  */
 public class CreateNewOrder extends javax.swing.JFrame {
 
-    /**
-     * Creates new form NewOrder
-     */
+    private static java.util.logging.Logger log1;
+    private static FileHandler handler1;
+
+    static {
+        try {
+            log1 = java.util.logging.Logger.getLogger("log1");
+            handler1 = new FileHandler("log.txt", true);
+            log1.addHandler(handler1);
+        } catch (Exception e) {
+            e.printStackTrace();
+            log1.warning(e.toString());
+        }
+    }
+    
     public CreateNewOrder() {
         initComponents();
     }
@@ -264,7 +279,22 @@ public class CreateNewOrder extends javax.swing.JFrame {
 
         } else {
 
-            //code
+            try {
+                
+                ResultSet resultSet = MySQL.execute("SELECT * FROM `customer` WHERE `mobile`='"+cusMobile+"'");
+                
+                if(resultSet.next()){
+                    
+                }
+                
+//                MySQL.execute("INSERT INTO `orders` "
+//                        + "(`date_time`,`customer_id`,`menu_id`) "
+//                        + "VALUES ('"+new Date()+"','"++"')");
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                log1.warning(e.toString());
+            }
 
             if (notes.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Do you want to set the notes Empty", "Warning", JOptionPane.YES_NO_OPTION);
@@ -275,14 +305,14 @@ public class CreateNewOrder extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        
+
         String cusName = jTextField12.getText();
         String cusMobile = jTextField13.getText();
         String item = String.valueOf(jComboBox13.getSelectedItem());
         String type = String.valueOf(jComboBox14.getSelectedItem());
         String size = String.valueOf(jComboBox15.getSelectedItem());
         String notes = jTextArea5.getText();
-        
+
         if (cusName.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please Enter Customer Name", "Warning", JOptionPane.WARNING_MESSAGE);
 
@@ -307,20 +337,19 @@ public class CreateNewOrder extends javax.swing.JFrame {
         } else {
 
             //code
-
             if (notes.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Do you want to set the notes Empty", "Warning", JOptionPane.YES_NO_OPTION);
 
             }
 
         }
-        
+
     }//GEN-LAST:event_jButton6ActionPerformed
 
-/**
- * @param args the command line arguments
- */
-public static void main(String args[]) {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -332,27 +361,23 @@ public static void main(String args[]) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
 
-}
+                }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreateNewOrder.class  
+            java.util.logging.Logger.getLogger(CreateNewOrder.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(CreateNewOrder.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-} catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreateNewOrder.class  
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(CreateNewOrder.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-} catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreateNewOrder.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreateNewOrder.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(CreateNewOrder.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>

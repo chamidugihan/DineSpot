@@ -402,3 +402,559 @@
   <message>java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-01-11T12:40:17.076328Z</date>
+  <millis>1736599217076</millis>
+  <nanos>328000</nanos>
+  <sequence>0</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.Menu</class>
+  <method>loadStocks</method>
+  <thread>25</thread>
+  <message>java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE' at line 1</message>
+</record>
+<record>
+  <date>2025-01-11T12:40:17.116110600Z</date>
+  <millis>1736599217116</millis>
+  <nanos>110600</nanos>
+  <sequence>1</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.Menu</class>
+  <method>loadStocks</method>
+  <thread>25</thread>
+  <message>java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE' at line 1</message>
+</record>
+<record>
+  <date>2025-01-11T12:40:21.987689500Z</date>
+  <millis>1736599221987</millis>
+  <nanos>689500</nanos>
+  <sequence>2</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.Menu</class>
+  <method>loadStocks</method>
+  <thread>25</thread>
+  <message>java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE' at line 1</message>
+</record>
+<record>
+  <date>2025-01-11T12:40:21.992509900Z</date>
+  <millis>1736599221992</millis>
+  <nanos>509900</nanos>
+  <sequence>3</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.Menu</class>
+  <method>loadStocks</method>
+  <thread>25</thread>
+  <message>java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE' at line 1</message>
+</record>
+<record>
+  <date>2025-01-11T12:42:56.705087400Z</date>
+  <millis>1736599376705</millis>
+  <nanos>87400</nanos>
+  <sequence>4</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.Menu</class>
+  <method>loadStocks</method>
+  <thread>25</thread>
+  <message>java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `size`.`id` = 1 OR  `size`.`id` = 2' at line 1</message>
+</record>
+<record>
+  <date>2025-01-11T12:42:56.721465500Z</date>
+  <millis>1736599376721</millis>
+  <nanos>465500</nanos>
+  <sequence>5</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.Menu</class>
+  <method>loadStocks</method>
+  <thread>25</thread>
+  <message>java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `size`.`id` = 1 OR  `size`.`id` = 2' at line 1</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-01-11T14:27:21.303596400Z</date>
+  <millis>1736605641303</millis>
+  <nanos>596400</nanos>
+  <sequence>0</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jButton1ActionPerformed</method>
+  <thread>26</thread>
+  <message>java.lang.NullPointerException: Cannot invoke "model.UserBean.getId()" because the return value of "gui.AdminHome.getUserBean()" is null</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-01-11T14:35:04.760265200Z</date>
+  <millis>1736606104760</millis>
+  <nanos>265200</nanos>
+  <sequence>0</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jButton1ActionPerformed</method>
+  <thread>25</thread>
+  <message>java.sql.SQLException: Column count doesn't match value count at row 1</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-01-11T14:37:47.588300800Z</date>
+  <millis>1736606267588</millis>
+  <nanos>300800</nanos>
+  <sequence>0</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jButton1ActionPerformed</method>
+  <thread>25</thread>
+  <message>java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '','2','1')' at line 1</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-01-11T14:41:13.755670700Z</date>
+  <millis>1736606473755</millis>
+  <nanos>670700</nanos>
+  <sequence>0</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jButton1ActionPerformed</method>
+  <thread>25</thread>
+  <message>com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Incorrect date value: 'Sat Jan 11 20:11:04 IST 2025' for column 'date' at row 1</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-01-11T14:44:18.299239700Z</date>
+  <millis>1736606658299</millis>
+  <nanos>239700</nanos>
+  <sequence>0</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jButton1ActionPerformed</method>
+  <thread>25</thread>
+  <message>com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Incorrect date value: 'Sat Jan 11 20:14:10 IST 2025' for column 'date' at row 1</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-01-11T14:47:59.128398300Z</date>
+  <millis>1736606879128</millis>
+  <nanos>398300</nanos>
+  <sequence>0</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jButton1ActionPerformed</method>
+  <thread>25</thread>
+  <message>java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`dinespot_db`.`reservation`, CONSTRAINT `fk_reservation_table1` FOREIGN KEY (`table_id`) REFERENCES `table` (`id`))</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-01-11T16:22:48.113084900Z</date>
+  <millis>1736612568113</millis>
+  <nanos>84900</nanos>
+  <sequence>0</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jTable1MouseClicked</method>
+  <thread>25</thread>
+  <message>java.text.ParseException: Unparseable date: "20:24:00"</message>
+</record>
+<record>
+  <date>2025-01-11T16:22:48.280898300Z</date>
+  <millis>1736612568280</millis>
+  <nanos>898300</nanos>
+  <sequence>1</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jTable1MouseClicked</method>
+  <thread>25</thread>
+  <message>java.text.ParseException: Unparseable date: "20:24:00"</message>
+</record>
+<record>
+  <date>2025-01-11T16:22:53.857627Z</date>
+  <millis>1736612573857</millis>
+  <nanos>627000</nanos>
+  <sequence>2</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jTable1MouseClicked</method>
+  <thread>25</thread>
+  <message>java.text.ParseException: Unparseable date: "07:20:00"</message>
+</record>
+<record>
+  <date>2025-01-11T16:22:54.024625200Z</date>
+  <millis>1736612574024</millis>
+  <nanos>625200</nanos>
+  <sequence>3</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jTable1MouseClicked</method>
+  <thread>25</thread>
+  <message>java.text.ParseException: Unparseable date: "07:20:00"</message>
+</record>
+<record>
+  <date>2025-01-11T16:22:55.960498800Z</date>
+  <millis>1736612575960</millis>
+  <nanos>498800</nanos>
+  <sequence>4</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jTable1MouseClicked</method>
+  <thread>25</thread>
+  <message>java.text.ParseException: Unparseable date: "07:20:00"</message>
+</record>
+<record>
+  <date>2025-01-11T16:22:56.144432500Z</date>
+  <millis>1736612576144</millis>
+  <nanos>432500</nanos>
+  <sequence>5</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jTable1MouseClicked</method>
+  <thread>25</thread>
+  <message>java.text.ParseException: Unparseable date: "07:20:00"</message>
+</record>
+<record>
+  <date>2025-01-11T16:22:57.416069300Z</date>
+  <millis>1736612577416</millis>
+  <nanos>69300</nanos>
+  <sequence>6</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jTable1MouseClicked</method>
+  <thread>25</thread>
+  <message>java.text.ParseException: Unparseable date: "03:31:00"</message>
+</record>
+<record>
+  <date>2025-01-11T16:22:57.592101500Z</date>
+  <millis>1736612577592</millis>
+  <nanos>101500</nanos>
+  <sequence>7</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jTable1MouseClicked</method>
+  <thread>25</thread>
+  <message>java.text.ParseException: Unparseable date: "03:31:00"</message>
+</record>
+<record>
+  <date>2025-01-11T16:22:58.712149900Z</date>
+  <millis>1736612578712</millis>
+  <nanos>149900</nanos>
+  <sequence>8</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jTable1MouseClicked</method>
+  <thread>25</thread>
+  <message>java.text.ParseException: Unparseable date: "07:20:00"</message>
+</record>
+<record>
+  <date>2025-01-11T16:22:58.871866900Z</date>
+  <millis>1736612578871</millis>
+  <nanos>866900</nanos>
+  <sequence>9</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jTable1MouseClicked</method>
+  <thread>25</thread>
+  <message>java.text.ParseException: Unparseable date: "07:20:00"</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-01-11T16:25:07.684549800Z</date>
+  <millis>1736612707684</millis>
+  <nanos>549800</nanos>
+  <sequence>0</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jTable1MouseClicked</method>
+  <thread>25</thread>
+  <message>java.text.ParseException: Unparseable date: "20:24:00"</message>
+</record>
+<record>
+  <date>2025-01-11T16:25:07.876189Z</date>
+  <millis>1736612707876</millis>
+  <nanos>189000</nanos>
+  <sequence>1</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jTable1MouseClicked</method>
+  <thread>25</thread>
+  <message>java.text.ParseException: Unparseable date: "20:24:00"</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-01-11T16:35:17.487037300Z</date>
+  <millis>1736613317487</millis>
+  <nanos>37300</nanos>
+  <sequence>0</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jButton2ActionPerformed</method>
+  <thread>25</thread>
+  <message>java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '20:24' WHERE `id`='4'' at line 1</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-01-11T16:48:12.757755900Z</date>
+  <millis>1736614092757</millis>
+  <nanos>755900</nanos>
+  <sequence>0</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jButton2ActionPerformed</method>
+  <thread>25</thread>
+  <message>java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '20:24' WHERE `id`='4'' at line 1</message>
+</record>
+<record>
+  <date>2025-01-11T16:49:55.847489600Z</date>
+  <millis>1736614195847</millis>
+  <nanos>489600</nanos>
+  <sequence>1</sequence>
+  <logger>log1</logger>
+  <level>WARNING</level>
+  <class>gui.TableReservationDashboard</class>
+  <method>jButton2ActionPerformed</method>
+  <thread>25</thread>
+  <message>java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '02:27' WHERE `id`='8'' at line 1</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
