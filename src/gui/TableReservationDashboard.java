@@ -1,18 +1,33 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package gui;
 
+<<<<<<< HEAD
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+=======
 import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
+>>>>>>> 0184f6dc2b61d8a2916b8e55d5d5271d3799feba
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Vector;
 import java.util.logging.FileHandler;
+<<<<<<< HEAD
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import model.MySQL;
+import model.UserBean;
+
+=======
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
@@ -20,18 +35,30 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import model.MySQL;
 import model.UserBean;
+>>>>>>> 0184f6dc2b61d8a2916b8e55d5d5271d3799feba
 
 /**
  *
- * @author M. R. P. De Silva
+ * @author user
  */
-public class TableReservationDashboard extends javax.swing.JFrame {
+public class TableReservationDashboard extends javax.swing.JPanel {
 
+    private AdminHome adminHome;
+    HashMap<String, String> tableMap = new HashMap<>();
+    private static java.util.logging.Logger log1;
+    private static FileHandler handler1;
+
+<<<<<<< HEAD
+    /**
+     * Creates new form TableReservationDashboard
+     */
+=======
     HashMap<String, String> tableNoMap = new HashMap<>();
 
     private static java.util.logging.Logger log1;
     private static FileHandler handler1;
 
+>>>>>>> 0184f6dc2b61d8a2916b8e55d5d5271d3799feba
     static {
         try {
             log1 = java.util.logging.Logger.getLogger("log1");
@@ -41,6 +68,38 @@ public class TableReservationDashboard extends javax.swing.JFrame {
             e.printStackTrace();
             log1.warning(e.toString());
         }
+<<<<<<< HEAD
+    }
+
+    public TableReservationDashboard(AdminHome adminHome) {
+        initComponents();
+        this.adminHome = adminHome;
+        loadTable();
+
+    }
+
+    public void loadTable() {
+        try {
+
+            ResultSet resultSet = MySQL.execute("SELECT * FROM `table`");
+
+            Vector<String> v = new Vector<>();
+            v.add("Select");
+            while (resultSet.next()) {
+                v.add(resultSet.getString("name"));
+                this.tableMap.put(resultSet.getString("name"), resultSet.getString("id"));
+            }
+
+            DefaultComboBoxModel model = new DefaultComboBoxModel(v);
+            jComboBox1.setModel(model);
+//             model.removeElementAt(0);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            log1.warning(e.toString());
+        }
+=======
+>>>>>>> 0184f6dc2b61d8a2916b8e55d5d5271d3799feba
     }
 
     public TableReservationDashboard() {
@@ -147,7 +206,6 @@ public class TableReservationDashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -173,11 +231,6 @@ public class TableReservationDashboard extends javax.swing.JFrame {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jSpinField1 = new com.toedter.components.JSpinField();
         jTimeChooser2 = new lu.tudor.santec.jtimechooser.JTimeChooser();
-
-        jLabel1.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
-        jLabel1.setText("First Name");
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel2.setFont(new java.awt.Font("Noto Serif Hebrew", 1, 26)); // NOI18N
         jLabel2.setText("Table Reservation");
@@ -207,7 +260,7 @@ public class TableReservationDashboard extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jLabel8.setText("From Time");
 
-        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel2.setLayout(new java.awt.GridLayout());
 
         jButton1.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jButton1.setText("Add Reservation");
@@ -297,6 +350,8 @@ public class TableReservationDashboard extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
+<<<<<<< HEAD
+=======
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
             jTable1.getColumnModel().getColumn(1).setResizable(false);
@@ -306,6 +361,7 @@ public class TableReservationDashboard extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(5).setResizable(false);
             jTable1.getColumnModel().getColumn(6).setResizable(false);
         }
+>>>>>>> 0184f6dc2b61d8a2916b8e55d5d5271d3799feba
 
         jPanel4.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
@@ -350,8 +406,8 @@ public class TableReservationDashboard extends javax.swing.JFrame {
                                 .addGap(28, 28, 28)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel8))
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel5))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -393,13 +449,24 @@ public class TableReservationDashboard extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+<<<<<<< HEAD
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton5)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+=======
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE))
+>>>>>>> 0184f6dc2b61d8a2916b8e55d5d5271d3799feba
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -414,15 +481,74 @@ public class TableReservationDashboard extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-
-        pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String cusName = jTextField1.getText();
         String cusMobile = jTextField2.getText();
         int guestsNo = jSpinField1.getValue();
+<<<<<<< HEAD
+        Date reservedDate = jDateChooser1.getDate(); 
+        String time = jTimeChooser2.getFormatedTime();
+        String table = String.valueOf(jComboBox1.getSelectedIndex());
+         UserBean us = new UserBean();
+        int id =us.getId();
+        
+       LocalDate currentDate = LocalDate.now(); 
+       
+        if (cusName.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter Customer Name", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (!cusName.matches("^[a-zA-Z]*$")) {
+            JOptionPane.showMessageDialog(this, "Please Enter Customer Name", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (cusMobile.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter Customer Mobile Number", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (!cusMobile.matches("^07[01245678]{1}[0-9]{7}$")) {
+            JOptionPane.showMessageDialog(this, "Invalid Mobile Number", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (guestsNo == 0) {
+            JOptionPane.showMessageDialog(this, "Invalid Guest Number", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (!new Date().before(reservedDate)) {
+            JOptionPane.showMessageDialog(this, "Invalid Reservation Date", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (time.equals("00.00")) {
+            JOptionPane.showMessageDialog(this, "Invalid Reservation Time", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            String table_id = tableMap.get(table);
+             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = dateFormat.format(reservedDate); 
+            try {
+                MySQL.execute("INSERT INTO `reservation` (`customer_name`,`num_guests`,`mobile`,`date`,`time`,`user_id`,`table_id`)VALUES('" + cusName + "','" + guestsNo + "','" + cusMobile + "','" + formattedDate + "','" + time + "','" + id + "','" + table + "')");
+//                reset();
+            } catch (Exception ex) {
+                 log1.warning(ex.toString());
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyPressed
+        String cusMobile = jTextField3.getText();
+
+        if (cusMobile.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please Enter Customer Name", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+           
+        }
+    }//GEN-LAST:event_jTextField3KeyPressed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       
+       
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        TableReservationAdvancedSearch tableReservationAdvancedSearch = new TableReservationAdvancedSearch();
+        tableReservationAdvancedSearch.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+=======
         String tableNo = String.valueOf(jComboBox1.getSelectedItem());
 
         Date date = jDateChooser1.getDate();
@@ -667,6 +793,7 @@ public class TableReservationDashboard extends javax.swing.JFrame {
             }
         });
     }
+>>>>>>> 0184f6dc2b61d8a2916b8e55d5d5271d3799feba
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -674,7 +801,6 @@ public class TableReservationDashboard extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

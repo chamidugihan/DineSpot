@@ -2,7 +2,7 @@ package model;
 
 public class UserBean {
     
-    private int id;
+    private static int id;
     private String fname;
     private String lname;
     private String email;
@@ -15,7 +15,7 @@ public class UserBean {
     }
 
     public void setId(int id) {
-        this.id = id;
+        UserBean.id = id;
     }
 
     public String getFname() {

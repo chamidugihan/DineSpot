@@ -68,7 +68,7 @@ public class Splashscreen extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("DineSpot");
 
-        jLabel3.setText("v 1.0");
+        jLabel3.setText("v 1.1");
 
         jProgressBar1.setForeground(new java.awt.Color(255, 255, 255));
 

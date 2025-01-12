@@ -417,6 +417,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
+<<<<<<< HEAD
+=======
 <record>
   <date>2025-01-11T12:40:17.076328Z</date>
   <millis>1736599217076</millis>
@@ -649,6 +651,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
+>>>>>>> 0184f6dc2b61d8a2916b8e55d5d5271d3799feba
 </log>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE log SYSTEM "logger.dtd">
@@ -746,6 +749,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 </log>
+<<<<<<< HEAD
+=======
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
@@ -958,3 +963,4 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 </log>
+>>>>>>> 0184f6dc2b61d8a2916b8e55d5d5271d3799feba
