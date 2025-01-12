@@ -48,7 +48,6 @@ public class SignIn extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/moon (3).png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -58,17 +57,17 @@ public class SignIn extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Noto Serif Hebrew", 1, 26)); // NOI18N
         jLabel2.setText("Sign In");
 
-        jTextField1.setFont(new java.awt.Font("Noto Serif Hebrew", 0, 14)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Cambria", 0, 15)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Noto Serif Hebrew", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jLabel4.setText("Email");
 
-        jLabel5.setFont(new java.awt.Font("Noto Serif Hebrew", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jLabel5.setText("Password");
 
-        jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jPasswordField1.setFont(new java.awt.Font("Cambria", 0, 15)); // NOI18N
 
-        jButton4.setFont(new java.awt.Font("Noto Serif Hebrew", 1, 14)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jButton4.setText("Login");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,8 +76,6 @@ public class SignIn extends javax.swing.JFrame {
         });
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/12.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -112,7 +109,7 @@ public class SignIn extends javax.swing.JFrame {
                             .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(88, 88, 88)
@@ -145,7 +142,7 @@ public class SignIn extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addGap(27, 27, 27)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 91, Short.MAX_VALUE))
+                        .addGap(0, 92, Short.MAX_VALUE))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,6 +235,7 @@ public class SignIn extends javax.swing.JFrame {
                             userBean.setLname(lname);
 
                             AdminHome adminHome = new AdminHome();
+                            adminHome.setUserBean(userBean);
                             adminHome.setVisible(true);
                             this.dispose();
 

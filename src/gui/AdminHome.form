@@ -55,8 +55,15 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jButton2" alignment="0" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="jButton3" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
                       <Component id="jButton4" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
+=======
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jButton3" alignment="0" pref="127" max="32767" attributes="0"/>
+                      </Group>
+>>>>>>> 0184f6dc2b61d8a2916b8e55d5d5271d3799feba
                   </Group>
                   <EmptySpace pref="16" max="32767" attributes="0"/>
               </Group>
@@ -70,8 +77,13 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
+<<<<<<< HEAD
                   <Component id="jButton4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="455" max="32767" attributes="0"/>
+=======
+                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="467" max="32767" attributes="0"/>
+>>>>>>> 0184f6dc2b61d8a2916b8e55d5d5271d3799feba
               </Group>
           </Group>
         </DimensionLayout>
@@ -87,15 +99,19 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
+<<<<<<< HEAD
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/img/menu (1).png"/>
             </Property>
+=======
+>>>>>>> 0184f6dc2b61d8a2916b8e55d5d5271d3799feba
             <Property name="text" type="java.lang.String" value="Menu"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
           </Events>
         </Component>
+<<<<<<< HEAD
         <Component class="javax.swing.JButton" name="jButton4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -105,6 +121,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+=======
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Table Rservation"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+>>>>>>> 0184f6dc2b61d8a2916b8e55d5d5271d3799feba
           </Events>
         </Component>
       </SubComponents>
