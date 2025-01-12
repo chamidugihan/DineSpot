@@ -68,7 +68,7 @@ public class SignIn extends javax.swing.JFrame {
         jPasswordField1.setFont(new java.awt.Font("Cambria", 0, 15)); // NOI18N
 
         jButton4.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
-        jButton4.setText("Login");
+        jButton4.setText("Log In");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
